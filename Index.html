@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Guía del Oferente · Licitación Rayos X IA | SESAL Honduras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f4f8;
+            color: #0a2b3e;
+            padding: 2rem 1.5rem;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #0b3b4f, #0a5c6e);
+            color: white;
+            border-radius: 2rem;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .header .ref {
+            font-size: 0.9rem;
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-top: 0.5rem;
+        }
+        .countdown-box {
+            background: #fff2e0;
+            border-radius: 1.5rem;
+            padding: 1rem 1.5rem;
+            margin-top: 1.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            color: #1f5e6e;
+        }
+        .timer {
+            font-size: 2rem;
+            font-weight: 800;
+            font-family: monospace;
+            background: #0b3b4f;
+            padding: 0.4rem 1rem;
+            border-radius: 3rem;
+            color: white;
+            letter-spacing: 2px;
+        }
+        .key-dates {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #cbdbe0;
+            padding-bottom: 0.5rem;
+        }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s;
+            color: #2c4b60;
+        }
+        .tab-btn i {
+            margin-right: 8px;
+        }
+        .tab-btn.active {
+            background: #0b5e72;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .tab-pane {
+            display: none;
+            animation: fade 0.25s ease;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        @keyframes fade {
+            from { opacity: 0; transform: translateY(6px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        /* Cards & Accordions */
+        .card {
+            background: white;
+            border-radius: 1.5rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid #e2edf2;
+        }
+        .card-header {
+            background: #f9fdfe;
+            padding: 1.2rem 1.5rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e0edf2;
+        }
+        .card-header i {
+            transition: transform 0.2s;
+        }
+        .card-body {
+            padding: 1.2rem 1.8rem;
+            transition: 0.2s;
+        }
+        .collapsed .card-body {
+            display: none;
+        }
+
+        /* Checklists */
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid #eef3f7;
+        }
+        .checklist-item label {
+            flex: 1;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .checklist-actions {
+            margin-top: 1rem;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        button, .btn-small {
+            background: #eef2f9;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.8rem;
+        }
+        button.primary {
+            background: #0b5e72;
+            color: white;
+        }
+        button.danger {
+            background: #ffe2dd;
+            color: #b13e2d;
+        }
+        button:hover {
+            filter: brightness(0.96);
+            transform: scale(0.98);
+        }
+
+        /* Tabla comparativa */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        .comp-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 600px;
+        }
+        .comp-table th, .comp-table td {
+            border: 1px solid #cde3e9;
+            padding: 10px 8px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .comp-table th {
+            background: #e6f4f9;
+            font-weight: 700;
+        }
+        .comp-table td:first-child {
+            background: #fafefd;
+            font-weight: 600;
+            text-align: left;
+        }
+        [contenteditable="true"] {
+            background-color: #fffcf0;
+            min-width: 80px;
+            cursor: text;
+        }
+        /* Estilo para celdas diferentes a la columna base */
+        .diff-cell {
+            color: #d32f2f !important;
+            font-weight: 600;
+        }
+        .btn-icon {
+            background: none;
+            font-size: 1.1rem;
+            padding: 0 0.4rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.75rem;
+            color: #5e7c8c;
+        }
+        @media (max-width: 700px) {
+            body { padding: 1rem; }
+            .timer { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h1><i class="fas fa-microscope"></i> Guía Definitiva para el Oferente</h1>
+        <div><strong>LPN-UAFCE-FM-TB-001-2026</strong><br>Suministro, instalación y capacitación: 4 equipos ultraportátiles de rayos X de tórax (CXR) con diagnóstico CAD e inteligencia artificial</div>
+        <div class="ref">Secretaría de Salud (SESAL) - Unidad Administradora de Fondos de Cooperación Externa (UAFCE)</div>
+        <div class="countdown-box">
+            <div><i class="far fa-clock"></i> <strong>Cierre de propuestas:</strong><br> <span class="timer" id="countdownTimer">-- : -- : --</span></div>
+            <div class="key-dates">
+                <span><i class="fas fa-calendar-alt"></i> Límite preguntas: 15-abr-2026, 16:00</span>
+                <span><i class="fas fa-tools"></i> Visita técnica: No aplica</span>
+                <span><i class="fas fa-file-signature"></i> Validez oferta: 90 días</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab-btn active" data-tab="tab1"><i class="fas fa-info-circle"></i> Panorama</button>
+        <button class="tab-btn" data-tab="tab2"><i class="fas fa-calendar-week"></i> Fechas clave</button>
+        <button class="tab-btn" data-tab="tab3"><i class="fas fa-folder-open"></i> Documentación</button>
+        <button class="tab-btn" data-tab="tab4"><i class="fas fa-chart-line"></i> Comparativa equipos</button>
+        <button class="tab-btn" data-tab="tab5"><i class="fas fa-hand-holding-usd"></i> Garantías y pagos</button>
+        <button class="tab-btn" data-tab="tab6"><i class="fas fa-calculator"></i> Calculadora</button>
+        <button class="tab-btn" data-tab="tab7"><i class="fas fa-check-double"></i> Checklist Oferente</button>
+    </div>
+
+    <!-- PANORAMA -->
+    <div id="tab1" class="tab-pane active">
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)"><span><i class="fas fa-bullhorn"></i> Visión general</span><i class="fas fa-chevron-down"></i></div>
+            <div class="card-body">
+                <p><strong>Objeto:</strong> Suministro, instalación y capacitación para el uso de cuatro (4) equipos ultraportátiles de rayos X de tórax (CXR) con diagnóstico asistido por computadora (CAD) e inteligencia artificial (IA).</p>
+                <p><strong>Entidad contratante:</strong> Secretaría de Salud de Honduras (SESAL) - UAFCE.</p>
+                <p><strong>Criterio de adjudicación:</strong> Precio más bajo entre oferentes que cumplan 100% requisitos legales y técnicos (evaluación Cumple/No cumple).</p>
+                <p><strong>Moneda:</strong> Lempiras (L), sin incluir 15% de ISV.</p>
+                <p><strong>Lugar de entrega física:</strong> PAETI, Componente Tuberculosis, edificio Guacerique, Tegucigalpa M.D.C., Honduras.</p>
+                <p><strong>Plazo de entrega:</strong> 12 semanas (equipos) + 2 semanas instalación + 1 semana capacitación presencial.</p>
+                <p><i class="fas fa-check-circle" style="color:#0b5e72;"></i> Los equipos deben ser nuevos, de primer uso, no reacondicionados.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)"><span><i class="fas fa-gavel"></i> Condiciones esenciales</span><i class="fas fa-chevron-down"></i></div>
+            <div class="card-body">
+                <ul style="margin-left: 1.5rem;">
+                    <li>Verificación en listas OFAC, ONU, SAM (antiterrorismo).</li>
+                    <li>La SESAL puede cancelar el proceso antes de la adjudicación sin responsabilidad.</li>
+                    <li>Presentación: original + copia + PDF por cada sobre (A, B, C). Caja externa rotulada.</li>
+                    <li>Multa por mora: 0.36% diario del monto total del contrato.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- FECHAS CLAVE (línea de tiempo) -->
+    <div id="tab2" class="tab-pane">
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)"><span><i class="fas fa-timeline"></i> Hitos del proceso</span><i class="fas fa-chevron-down"></i></div>
+            <div class="card-body">
+                <ul style="list-style-type: none;">
+                    <li><i class="fas fa-calendar-day"></i> <strong>Publicación:</strong> 27 de marzo de 2026</li>
+                    <li><i class="fas fa-question-circle"></i> <strong>Límite de preguntas:</strong> 15 de abril de 2026, 16:00 h</li>
+                    <li><i class="fas fa-envelope-open-text"></i> <strong>Respuesta aclaraciones:</strong> antes del 21 de abril 2026 (estimado)</li>
+                    <li><i class="fas fa-hourglass-end"></i> <strong>Presentación de ofertas (límite):</strong> 27 de abril de 2026, 10:00 a.m. (UTC-6)</li>
+                    <li><i class="fas fa-file-contract"></i> <strong>Validez oferta:</strong> 90 días calendario</li>
+                    <li><i class="fas fa-truck-fast"></i> <strong>Entrega máxima:</strong> 12 semanas post contrato</li>
+                </ul>
+                <div class="key-dates" style="margin-top: 1rem; background: #eaf7fb; padding: 1rem; border-radius: 1rem;">
+                    <i class="fas fa-stopwatch"></i> Recuerda: La garantía de mantenimiento de oferta debe tener vigencia de 150 días calendario.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DOCUMENTACIÓN (checklists + acordeones) -->
+    <div id="tab3" class="tab-pane">
+        <!-- Legal -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)"><span><i class="fas fa-balance-scale"></i> Sobre A - Documentación legal</span><i class="fas fa-chevron-down"></i></div>
+            <div class="card-body" id="legal-checklist-container"></div>
+        </div>
+        <!-- Técnico -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)"><span><i class="fas fa-microchip"></i> Sobre B - Documentación técnica</span><i class="fas fa-chevron-down"></i></div>
+            <div class="card-body" id="tech-checklist-container"></div>
+        </div>
+        <!-- Económico -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)"><span><i class="fas fa-chart-simple"></i> Sobre C - Documentación económica/financiera</span><i class="fas fa-chevron-down"></i></div>
+            <div class="card-body" id="eco-checklist-container"></div>
+        </div>
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)"><span><i class="fas fa-stamp"></i> Recomendaciones clave</span><i class="fas fa-chevron-down"></i></div>
+            <div class="card-body">
+                <p>✔ Todas las fotocopias deben estar autenticadas por notario (o apostilladas si extranjero). <br> ✔ La tabla de cumplimiento del Anexo 3 debe marcar "Cumple" en cada especificación técnica.<br> ✔ Adjuntar versión digital de desglose en Excel.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- COMPARATIVA EQUIPOS (tabla dinámica) -->
+    <div id="tab4" class="tab-pane">
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)"><span><i class="fas fa-table-list"></i> Comparador técnico interactivo</span><i class="fas fa-chevron-down"></i></div>
+            <div class="card-body">
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1rem;">
+                    <button id="addColumnBtn" class="primary"><i class="fas fa-plus-circle"></i> Agregar columna (equipo)</button>
+                    <button id="removeColumnBtn" class="danger"><i class="fas fa-minus-circle"></i> Eliminar última columna</button>
+                    <button id="addRowBtn" class="primary"><i class="fas fa-plus-square"></i> Agregar fila (especificación)</button>
+                    <button id="removeRowBtn" class="danger"><i class="fas fa-trash-alt"></i> Eliminar última fila</button>
+                    <button id="resetTableBtn"><i class="fas fa-undo-alt"></i> Reiniciar tabla</button>
+                </div>
+                <div class="table-wrapper">
+                    <table class="comp-table" id="specsTable">
+                        <thead id="tableHead"></thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+                <p class="small" style="margin-top: 0.5rem;"><i class="fas fa-edit"></i> Celdas editables: haz clic para modificar valores. Las celdas en <span style="color:#d32f2f; font-weight:bold;">rojo</span> indican diferencias con respecto al primer equipo (columna base).</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- GARANTÍAS Y PAGOS -->
+    <div id="tab5" class="tab-pane">
+        <div class="card"><div class="card-header" onclick="toggleCard(this)"><span><i class="fas fa-shield-alt"></i> Garantías requeridas</span><i class="fas fa-chevron-down"></i></div><div class="card-body">
+            <ul><li><strong>Mantenimiento de oferta:</strong> 2% del valor total, vigencia 150 días calendario.</li>
+            <li><strong>Cumplimiento de contrato:</strong> 15% del monto contractual, vigencia ejecución + 3 meses.</li>
+            <li><strong>Calidad:</strong> 5% del monto, vigencia mínima 2 años desde recepción definitiva.</li>
+            <li><strong>Garantía de fábrica:</strong> mínima 3 años (incluye software y actualizaciones gratuitas).</li></ul>
+        </div></div>
+        <div class="card"><div class="card-header" onclick="toggleCard(this)"><span><i class="fas fa-money-bill-wave"></i> Forma de pago</span><i class="fas fa-chevron-down"></i></div><div class="card-body">
+            <p>🔹 50% contra entrega completa y verificada de los 4 equipos + acta parcial.<br>🔹 50% contra instalación, puesta en funcionamiento, capacitación + acta definitiva.</p>
+            <p><strong>Multa por mora:</strong> 0.36% diario del monto total del contrato (imputable al proveedor).</p>
+        </div></div>
+        <div class="card"><div class="card-header" onclick="toggleCard(this)"><span><i class="fas fa-file-invoice"></i> Documentos adicionales post-adjudicación</span><i class="fas fa-chevron-down"></i></div><div class="card-body">
+            <p>Garantía de cumplimiento (15 días hábiles post firma), plan de entrega, certificados de inspección, disponibilidad de repuestos por 7 años.</p>
+        </div></div>
+    </div>
+
+    <!-- CALCULADORA -->
+    <div id="tab6" class="tab-pane">
+        <div class="card"><div class="card-header" onclick="toggleCard(this)"><span><i class="fas fa-calculator"></i> Calculadora: Garantía de mantenimiento (2%) y multa diaria</span><i class="fas fa-chevron-down"></i></div><div class="card-body">
+            <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 500px;">
+                <div><label>Monto total ofertado (Lempiras, sin ISV):</label><input type="number" id="montoBase" placeholder="Ej: 4800000" class="input-style" style="padding: 8px; border-radius: 20px; border:1px solid #ccc; width:100%"></div>
+                <div><strong>Garantía de mantenimiento de oferta (2%):</strong> <span id="garantiaMonto">L 0.00</span></div>
+                <hr>
+                <div><label>Días de retraso (multa 0.36% diario):</label><input type="number" id="diasMora" placeholder="días" value="0" style="padding: 8px; border-radius: 20px;"></div>
+                <div><strong>Multa estimada:</strong> <span id="multaMonto">L 0.00</span></div>
+                <button id="calcBtn" class="primary">Calcular</button>
+            </div>
+        </div></div>
+    </div>
+
+    <!-- CHECKLIST OFERENTE (tareas dinámicas) -->
+    <div id="tab7" class="tab-pane">
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)"><span><i class="fas fa-tasks"></i> Checklist personal del oferente (marca tus avances)</span><i class="fas fa-chevron-down"></i></div>
+            <div class="card-body">
+                <div id="dynamicChecklist"></div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px;">
+                    <button id="addTaskBtn" class="primary"><i class="fas fa-plus"></i> Añadir tarea</button>
+                    <button id="resetChecklistBtn" class="danger"><i class="fas fa-sync-alt"></i> Reiniciar a tareas por defecto</button>
+                    <button id="exportChecklistBtn"><i class="fas fa-download"></i> Exportar checklist (.txt)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>Guía interactiva basada en pliego LPN-UAFCE-FM-TB-001-2026 | Los datos persisten localmente</footer>
+</div>
+
+<script>
+    // ---------- UTILS: persistencia checklists estáticos ----------
+    const LEGAL_ITEMS = [
+        "Fotocopia personería jurídica o documento de constitución",
+        "Permiso de Operación vigente",
+        "Registro Tributario Nacional (RTN) numérico de la empresa",
+        "Nombre del representante legal + fotocopia DNI/pasaporte y RTN",
+        "Carta Poder del representante legal (facultades)",
+        "Documentación autenticada como distribuidor/representante autorizado",
+        "Carta reciente del distribuidor autorizado ofreciendo soporte (autenticada)",
+        "Declaración jurada sin juicios pendientes (autenticada)",
+        "Declaración jurada sin antecedentes penales (autenticada)"
+    ];
+    const TECH_ITEMS = [
+        "Catálogos o insertos originales de equipos (traducidos)",
+        "Certificación ISO 13485:2016",
+        "Certificación IEC 62304 (software médico)",
+        "Certificación ISO 14971 (gestión riesgos)",
+        "Certificación IEC 60601 (seguridad eléctrica/EMC)",
+        "Aprobación regulatoria OMS 2025 + FDA/CE/Health Canada/PMDA/TGA",
+        "Tabla de cumplimiento del Anexo 3 (todo 'Cumple')",
+        "Plan de mantenimiento preventivo y correctivo",
+        "Listado de repuestos disponibles en país (stock mínimo)",
+        "Compromiso servicio crítico (disponibilidad ≥95%, respuesta ≤24h, respaldo)",
+        "Declaración equipo nuevo, no reacondicionado",
+        "Cronograma entrega (12 sem) + instalación (2 sem) + capacitación (1 sem)",
+        "Mínimo 2 referencias de ventas similares en país o región",
+        "Certificado de garantía de fábrica (mínimo 3 años, software incluido)"
+    ];
+    const ECO_ITEMS = [
+        "Carta Oferta Económica según Anexo 1 (firmada y sellada)",
+        "Desglose de precios en Excel (versión electrónica)",
+        "Monto total en números y letras, Lempiras sin ISV, dos decimales",
+        "Detalle de precios unitarios (equipo, licencias, instalación, capacitación, garantías)"
+    ];
+
+    function buildChecklist(containerId, itemsArray, storageKey) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        let saved = localStorage.getItem(storageKey);
+        let checkedState = saved ? JSON.parse(saved) : new Array(itemsArray.length).fill(false);
+        function render() {
+            container.innerHTML = '';
+            itemsArray.forEach((item, idx) => {
+                const div = document.createElement('div');
+                div.className = 'checklist-item';
+                const cb = document.createElement('input');
+                cb.type = 'checkbox';
+                cb.checked = checkedState[idx] || false;
+                cb.addEventListener('change', (e) => {
+                    checkedState[idx] = e.target.checked;
+                    localStorage.setItem(storageKey, JSON.stringify(checkedState));
+                });
+                const label = document.createElement('label');
+                label.textContent = item;
+                div.appendChild(cb);
+                div.appendChild(label);
+                container.appendChild(div);
+            });
+            // Botón exportar
+            if (!document.getElementById(`export-${storageKey}`)) {
+                const btnDiv = document.createElement('div');
+                btnDiv.className = 'checklist-actions';
+                const exp = document.createElement('button');
+                exp.innerHTML = '<i class="fas fa-file-export"></i> Exportar lista';
+                exp.addEventListener('click', () => {
+                    const selected = itemsArray.filter((_, i) => checkedState[i]);
+                    const content = `DOCUMENTOS (${storageKey}):\n${selected.map(s => `✓ ${s}`).join('\n')}\nPendientes: ${itemsArray.length - selected.length}`;
+                    downloadTxt(content, `checklist_${storageKey}.txt`);
+                });
+                btnDiv.appendChild(exp);
+                container.appendChild(btnDiv);
+            }
+        }
+        render();
+    }
+    function downloadTxt(content, filename) {
+        const blob = new Blob([content], {type: 'text/plain'});
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = filename;
+        a.click();
+        URL.revokeObjectURL(a.href);
+    }
+    buildChecklist('legal-checklist-container', LEGAL_ITEMS, 'legalChecklist');
+    buildChecklist('tech-checklist-container', TECH_ITEMS, 'techChecklist');
+    buildChecklist('eco-checklist-container', ECO_ITEMS, 'ecoChecklist');
+
+    // ---------- TABLA DINÁMICA CON DETECCIÓN DE DIFERENCIAS (ROJO) ----------
+    let tableModel = {
+        columns: ["Equipo base (Referencia)", "Oferta competidora"],
+        rows: [
+            { name: "Peso del generador (kg) - máx 20 kg", values: ["19", "18.5"] },
+            { name: "Peso del detector (kg) - máx 5 kg", values: ["4.2", "4.0"] },
+            { name: "Peso total sistema (kg) - máx 30 kg", values: ["27", "26"] },
+            { name: "Voltaje máximo (kV) - mín 90 kV", values: ["110", "105"] },
+            { name: "Corriente (mA) a 90 kV - mín 5 mA", values: ["10", "9"] },
+            { name: "Rango mAs - mín 0.3-100 mAs", values: ["0.5-120", "0.4-110"] },
+            { name: "Tamaño del detector (cm) - mín 35x43", values: ["35x43", "35x43"] },
+            { name: "Paso de píxel (μm) - máx 150 μm", values: ["140", "145"] },
+            { name: "Resolución espacial (lp/mm) - mín 3 lp/mm", values: ["3.5", "3.2"] },
+            { name: "DQE (%) - mín 70%", values: ["72", "71"] },
+            { name: "Autonomía batería (exposiciones) - mín 100", values: ["150", "130"] },
+            { name: "Tiempo procesamiento CAD (seg) - máx 10 s", values: ["5", "6"] },
+            { name: "Disponibilidad sistema (%) - mín 95%", values: ["97", "96"] },
+            { name: "Certificación ISO 13485 (Sí/No)", values: ["Sí", "Sí"] },
+            { name: "Certificación IEC 62304 (Sí/No)", values: ["Sí", "Sí"] },
+            { name: "Certificación IEC 60601 (Sí/No)", values: ["Sí", "Sí"] },
+            { name: "Aprobación OMS 2025 (Sí/No)", values: ["Sí", "Sí"] }
+        ],
+        compliance: [true, true]
+    };
+    function saveTableModel() { localStorage.setItem('dynamicSpecTable', JSON.stringify(tableModel)); }
+    function loadTableModel() {
+        const saved = localStorage.getItem('dynamicSpecTable');
+        if(saved) {
+            try {
+                const parsed = JSON.parse(saved);
+                if(parsed.columns && parsed.rows && parsed.compliance) tableModel = parsed;
+            } catch(e){}
+        }
+    }
+    // Aplica clase diff-cell a todas las celdas de valores que sean diferentes a la columna base (columna 0 de valores)
+    function applyDiffToAllCells() {
+        const tbody = document.getElementById('tableBody');
+        if (!tbody) return;
+        // Obtener todas las filas excepto la última (fila de cumplimiento)
+        const rows = Array.from(tbody.querySelectorAll('tr'));
+        if (rows.length === 0) return;
+        const dataRows = rows.slice(0, -1); // última fila es compliance
+        dataRows.forEach(row => {
+            const cells = Array.from(row.cells);
+            if (cells.length < 2) return;
+            const baseValue = cells[1]?.innerText.trim() || ""; // columna base (primer equipo)
+            for (let i = 2; i < cells.length; i++) {
+                const currentValue = cells[i].innerText.trim();
+                if (currentValue !== baseValue) {
+                    cells[i].classList.add('diff-cell');
+                } else {
+                    cells[i].classList.remove('diff-cell');
+                }
+            }
+        });
+    }
+    function renderTable() {
+        const thead = document.getElementById('tableHead');
+        const tbody = document.getElementById('tableBody');
+        thead.innerHTML = '';
+        tbody.innerHTML = '';
+        const headerRow = document.createElement('tr');
+        headerRow.appendChild(document.createElement('th')).textContent = 'Especificación técnica';
+        tableModel.columns.forEach((col) => {
+            const th = document.createElement('th');
+            th.textContent = col;
+            headerRow.appendChild(th);
+        });
+        thead.appendChild(headerRow);
+        // Filas de especificaciones
+        tableModel.rows.forEach((row, rowIdx) => {
+            const tr = document.createElement('tr');
+            const tdName = document.createElement('td');
+            tdName.textContent = row.name;
+            tdName.contentEditable = "true";
+            tdName.addEventListener('blur', (e) => {
+                tableModel.rows[rowIdx].name = e.target.innerText;
+                saveTableModel();
+                applyDiffToAllCells();
+            });
+            tr.appendChild(tdName);
+            row.values.forEach((val, colIdx) => {
+                const td = document.createElement('td');
+                td.textContent = val;
+                td.contentEditable = "true";
+                td.addEventListener('blur', (e) => {
+                    tableModel.rows[rowIdx].values[colIdx] = e.target.innerText;
+                    saveTableModel();
+                    applyDiffToAllCells();
+                });
+                tr.appendChild(td);
+            });
+            tbody.appendChild(tr);
+        });
+        // Fila de cumplimiento
+        const complianceRow = document.createElement('tr');
+        const thCumple = document.createElement('td');
+        thCumple.textContent = '✅ Cumple requerimientos mínimos (marca manual)';
+        thCumple.style.fontWeight = 'bold';
+        complianceRow.appendChild(thCumple);
+        tableModel.compliance.forEach((checked, idx) => {
+            const td = document.createElement('td');
+            const cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.checked = checked;
+            cb.addEventListener('change', (e) => {
+                tableModel.compliance[idx] = e.target.checked;
+                saveTableModel();
+            });
+            td.appendChild(cb);
+            complianceRow.appendChild(td);
+        });
+        tbody.appendChild(complianceRow);
+        saveTableModel();
+        applyDiffToAllCells();
+    }
+    function addColumn() {
+        let newName = prompt("Nombre del nuevo equipo/oferente:", "Equipo Nuevo");
+        if(!newName) newName = "Oferente X";
+        tableModel.columns.push(newName);
+        tableModel.rows.forEach(row => row.values.push("—"));
+        tableModel.compliance.push(false);
+        renderTable();
+    }
+    function removeLastColumn() {
+        if(tableModel.columns.length <= 1) { alert("Debe haber al menos una columna de equipos."); return; }
+        tableModel.columns.pop();
+        tableModel.rows.forEach(row => row.values.pop());
+        tableModel.compliance.pop();
+        renderTable();
+    }
+    function addRow() {
+        let newSpec = prompt("Nombre de la nueva especificación técnica:", "Nueva especificación");
+        if(!newSpec) newSpec = "Especificación adicional";
+        const defaultVals = new Array(tableModel.columns.length).fill("—");
+        tableModel.rows.push({ name: newSpec, values: defaultVals });
+        renderTable();
+    }
+    function removeLastRow() {
+        if(tableModel.rows.length <= 1) { alert("Mantener al menos una fila técnica."); return; }
+        tableModel.rows.pop();
+        renderTable();
+    }
+    function resetTableToDefault() {
+        tableModel = {
+            columns: ["Equipo base (Referencia)", "Oferta competidora"],
+            rows: [
+                { name: "Peso del generador (kg) - máx 20 kg", values: ["19", "18.5"] },
+                { name: "Peso del detector (kg) - máx 5 kg", values: ["4.2", "4.0"] },
+                { name: "Peso total sistema (kg) - máx 30 kg", values: ["27", "26"] },
+                { name: "Voltaje máximo (kV) - mín 90 kV", values: ["110", "105"] },
+                { name: "Corriente (mA) a 90 kV - mín 5 mA", values: ["10", "9"] },
+                { name: "Rango mAs - mín 0.3-100 mAs", values: ["0.5-120", "0.4-110"] },
+                { name: "Tamaño del detector (cm) - mín 35x43", values: ["35x43", "35x43"] },
+                { name: "Paso de píxel (μm) - máx 150 μm", values: ["140", "145"] },
+                { name: "Resolución espacial (lp/mm) - mín 3 lp/mm", values: ["3.5", "3.2"] },
+                { name: "DQE (%) - mín 70%", values: ["72", "71"] },
+                { name: "Autonomía batería (exposiciones) - mín 100", values: ["150", "130"] },
+                { name: "Tiempo procesamiento CAD (seg) - máx 10 s", values: ["5", "6"] },
+                { name: "Disponibilidad sistema (%) - mín 95%", values: ["97", "96"] },
+                { name: "Certificación ISO 13485 (Sí/No)", values: ["Sí", "Sí"] },
+                { name: "Certificación IEC 62304 (Sí/No)", values: ["Sí", "Sí"] },
+                { name: "Certificación IEC 60601 (Sí/No)", values: ["Sí", "Sí"] },
+                { name: "Aprobación OMS 2025 (Sí/No)", values: ["Sí", "Sí"] }
+            ],
+            compliance: [true, true]
+        };
+        renderTable();
+    }
+    loadTableModel();
+    renderTable();
+    document.getElementById('addColumnBtn').addEventListener('click', addColumn);
+    document.getElementById('removeColumnBtn').addEventListener('click', removeLastColumn);
+    document.getElementById('addRowBtn').addEventListener('click', addRow);
+    document.getElementById('removeRowBtn').addEventListener('click', removeLastRow);
+    document.getElementById('resetTableBtn').addEventListener('click', resetTableToDefault);
+
+    // ---------- CHECKLIST OFERENTE DINÁMICO ----------
+    let dynamicTasks = [];
+    const DEFAULT_TASKS = [
+        "Leer y comprender completamente las bases de licitación y sus anexos.",
+        "Registrar y enviar preguntas por escrito antes del 15-abr-2026, 16:00 h.",
+        "Preparar Sobre A con toda la documentación legal (ver checklist Legal).",
+        "Preparar Sobre B con toda la documentación técnica (ver checklist Técnico).",
+        "Preparar Sobre C con la oferta económica y desglose.",
+        "Calcular presupuesto total ofertado y garantía de mantenimiento (2%).",
+        "Solicitar garantía de mantenimiento de oferta (vigencia 150 días).",
+        "Verificar que equipos cumplan 100% especificaciones técnicas mínimas.",
+        "Elaborar cronograma entrega (12 sem), instalación (2 sem), capacitación (1 sem).",
+        "Recopilar certificaciones ISO, IEC, OMS, FDA/CE, etc.",
+        "Acreditar mínimo 2 referencias de ventas similares en país o región.",
+        "Redactar carta oferta económica con montos en números y letras (sin ISV).",
+        "Revisar errores aritméticos (prevalencia letras y unitario).",
+        "Conformar caja externa con 3 sobres (A,B,C) cada uno original+copia+PDF.",
+        "Rotular caja externa con número de proceso y nombre del oferente.",
+        "Entregar físicamente en UAFCE antes del 27-abr-2026, 10:00 a.m.",
+        "Confirmar acreditaciones del personal técnico y de capacitación.",
+        "Asegurar disponibilidad de repuestos en país por al menos 7 años.",
+        "Preparar plan de mantenimiento preventivo y correctivo detallado.",
+        "Revisar conflictos de interés y listas OFAC/ONU/SAM."
+    ];
+    function saveDynamicTasks() { localStorage.setItem('dynamicOferenteTasks', JSON.stringify(dynamicTasks)); }
+    function loadDynamicTasks() {
+        const saved = localStorage.getItem('dynamicOferenteTasks');
+        if(saved) { dynamicTasks = JSON.parse(saved); }
+        else { dynamicTasks = DEFAULT_TASKS.map(t => ({ text: t, checked: false })); }
+        renderDynamicChecklist();
+    }
+    function renderDynamicChecklist() {
+        const container = document.getElementById('dynamicChecklist');
+        container.innerHTML = '';
+        dynamicTasks.forEach((task, idx) => {
+            const div = document.createElement('div');
+            div.className = 'checklist-item';
+            const cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.checked = task.checked;
+            cb.addEventListener('change', (e) => {
+                dynamicTasks[idx].checked = e.target.checked;
+                saveDynamicTasks();
+            });
+            const label = document.createElement('label');
+            label.textContent = task.text;
+            const delBtn = document.createElement('button');
+            delBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+            delBtn.style.background = 'none';
+            delBtn.style.color = '#b13e2d';
+            delBtn.addEventListener('click', () => {
+                dynamicTasks.splice(idx,1);
+                saveDynamicTasks();
+                renderDynamicChecklist();
+            });
+            div.appendChild(cb);
+            div.appendChild(label);
+            div.appendChild(delBtn);
+            container.appendChild(div);
+        });
+    }
+    function addCustomTask() {
+        let newTask = prompt("Nueva tarea para tu checklist:");
+        if(newTask && newTask.trim()) {
+            dynamicTasks.push({ text: newTask.trim(), checked: false });
+            saveDynamicTasks();
+            renderDynamicChecklist();
+        }
+    }
+    function resetToDefaultTasks() {
+        dynamicTasks = DEFAULT_TASKS.map(t => ({ text: t, checked: false }));
+        saveDynamicTasks();
+        renderDynamicChecklist();
+    }
+    function exportDynamicChecklist() {
+        const completed = dynamicTasks.filter(t => t.checked).map(t => `✓ ${t.text}`).join('\n');
+        const pending = dynamicTasks.filter(t => !t.checked).map(t => `◻ ${t.text}`).join('\n');
+        const content = `CHECKLIST OFERENTE\nCompletadas (${dynamicTasks.filter(t=>t.checked).length}):\n${completed}\n\nPendientes:\n${pending}`;
+        downloadTxt(content, 'checklist_oferente.txt');
+    }
+    loadDynamicTasks();
+    document.getElementById('addTaskBtn').addEventListener('click', addCustomTask);
+    document.getElementById('resetChecklistBtn').addEventListener('click', resetToDefaultTasks);
+    document.getElementById('exportChecklistBtn').addEventListener('click', exportDynamicChecklist);
+
+    // Calculadora
+    document.getElementById('calcBtn').addEventListener('click', () => {
+        let base = parseFloat(document.getElementById('montoBase').value);
+        if(isNaN(base)) base = 0;
+        const garantia = base * 0.02;
+        document.getElementById('garantiaMonto').innerHTML = `L ${garantia.toFixed(2)}`;
+        let dias = parseInt(document.getElementById('diasMora').value) || 0;
+        let multa = base * 0.0036 * dias;
+        document.getElementById('multaMonto').innerHTML = `L ${multa.toFixed(2)}`;
+    });
+
+    // Cuenta regresiva (fecha límite 27-abr-2026 10:00 UTC-6)
+    function updateCountdown() {
+        const targetDate = new Date(Date.UTC(2026, 3, 27, 16, 0, 0));
+        const now = new Date();
+        const diff = targetDate - now;
+        if(diff <= 0) {
+            document.getElementById('countdownTimer').innerHTML = "¡PROCESO CERRADO!";
+            return;
+        }
+        const days = Math.floor(diff / (1000*60*60*24));
+        const hrs = Math.floor((diff % (86400000))/3600000);
+        const mins = Math.floor((diff % 3600000)/60000);
+        const secs = Math.floor((diff % 60000)/1000);
+        document.getElementById('countdownTimer').innerHTML = `${days}d ${hrs}h ${mins}m ${secs}s`;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Tabs + acordeones
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+            document.getElementById(btn.getAttribute('data-tab')).classList.add('active');
+        });
+    });
+    window.toggleCard = function(el) {
+        const card = el.closest('.card');
+        card.classList.toggle('collapsed');
+        const icon = card.querySelector('.card-header i:last-child');
+        if(icon) icon.style.transform = card.classList.contains('collapsed') ? 'rotate(-90deg)' : 'rotate(0deg)';
+    };
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('collapsed'));
+</script>
+</body>
+</html>
